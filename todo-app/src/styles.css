@@ -1,0 +1,202 @@
+/* src/styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh;
+    padding-top: 2em; /* Add space from the top */
+  }
+  
+  /* Container for centering the content */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    padding: 1em;
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* TaskInput Styles */
+  .task-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .task-input input {
+    margin: 0.5em 0;
+    padding: 0.75em;
+    font-size: 1em;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .task-input input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .task-input button {
+    padding: 0.75em;
+    font-size: 1em;
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-input button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* TaskList Styles */
+  .task-list {
+    width: 100%;
+  }
+  
+  .task-list button {
+    margin-right: 0.5em;
+    padding: 0.75em;
+    font-size: 1em;
+    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-list button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  .task-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* TaskItem Styles */
+  .task-item {
+    display: flex;
+    flex-direction: column; /* Stack title and description vertically */
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  
+  .task-item .task-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .task-item .task-label {
+    font-weight: bold; /* Make labels bold */
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+  }
+  
+  .task-item .task-title {
+    font-size: 1.25em; /* Larger font size for title */
+    margin: 0.5em 0; /* Space above and below title */
+  }
+  
+  .task-item .task-description {
+    font-size: 1em; /* Font size for description */
+    margin: 0.5em 0; /* Space above and below description */
+  }
+  
+  .task-item .edit-delete-buttons {
+    display: flex;
+    gap: 0.5em; /* Space between buttons */
+    margin-top: 1em; /* Space above buttons */
+  }
+  
+  .task-item button {
+    padding: 0.5em;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color: #ffc107; /* Yellow background */
+    color: #ffffff;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+  }
+  
+  .save-button {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff;
+  }
+  
+  .save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .cancel-button {
+    background-color: #6c757d; /* Grey background */
+    color: #ffffff;
+  }
+  
+  .cancel-button:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .task-item {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+  
+    .task-item .task-details {
+      margin-bottom: 1em; /* Add bottom margin for spacing */
+    }
+  
+    .task-item .task-title,
+    .task-item .task-description {
+      margin-bottom: 0.5em; /* Add bottom margin for spacing */
+    }
+  
+    .task-item .edit-delete-buttons {
+      flex-direction: row; /* Align buttons horizontally */
+    }
+  
+    .task-item button {
+      padding: 0.4em 0.8em; /* Adjust button padding for smaller screens */
+      font-size: 0.8em; /* Slightly smaller font size */
+    }
+  }
+  
