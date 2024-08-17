@@ -1,7 +1,10 @@
+// src/components/TaskList.js
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from '../redux/actions';
-import TaskItem from './TaskItem'; // Import TaskItem
+import TaskItem from './TaskItem';
+import '../styles.css';
 
 const TaskList = () => {
   const tasks = useSelector((state) => state.tasks);
@@ -16,13 +19,20 @@ const TaskList = () => {
   });
 
   return (
-    <div>
-      <div>
-        <button onClick={() => dispatch(setFilter('ALL'))}>All Tasks</button>
-        <button onClick={() => dispatch(setFilter('COMPLETED'))}>Completed Tasks</button>
-        <button onClick={() => dispatch(setFilter('INCOMPLETE'))}>Incomplete Tasks</button>
+    <div className="task-list-container">
+      <div className="filter-dropdown">
+        <label htmlFor="task-filter">Filter Tasks:</label>
+        <select
+          id="task-filter"
+          value={filter}
+          onChange={(e) => dispatch(setFilter(e.target.value))}
+        >
+          <option value="ALL">All Tasks</option>
+          <option value="COMPLETED">Completed Tasks</option>
+          <option value="INCOMPLETE">Incomplete Tasks</option>
+        </select>
       </div>
-      <ul>
+      <ul className="task-list">
         {filteredTasks.map((task) => (
           <TaskItem key={task.id} task={task} />
         ))}

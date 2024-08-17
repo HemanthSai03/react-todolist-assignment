@@ -5,7 +5,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+    background: linear-gradient(135deg,   #83a4d4, #b6fbff); /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align items to the top */
@@ -77,7 +77,7 @@ body {
     padding: 0.75em;
     font-size: 1em;
     background-color: #28a745; /* Green background */
-    color: #ffffff; /* White text */
+    /* White text */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -97,69 +97,83 @@ body {
     align-items: center;
     padding: 0.75em;
     margin-bottom: 0.5em;
-    background-color: #ffffff; /* White background */
+    background-color: #d0dfe5; /* White background */
     border: 1px solid #ddd; /* Light border */
-    border-radius: 4px;
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   /* TaskItem Styles */
   .task-item {
     display: flex;
-    flex-direction: column; /* Stack title and description vertically */
-    align-items: flex-start;
+    align-items: center; /* Align items horizontally */
     width: 100%;
     margin-bottom: 0.5em;
   }
   
-  .task-item .task-details {
+  .task-details-inline {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    align-items: center;
+    flex: 1;
+    margin-left: 1em;
   }
   
-  .task-item .task-label {
-    font-weight: bold; /* Make labels bold */
-    margin-top: 0.5em;
-    margin-bottom: 0.25em;
+  .task-checkbox {
+    margin-right: 1em;
+    transform: scale(1.0); /* Make checkbox larger */
   }
   
-  .task-item .task-title {
-    font-size: 1.25em; /* Larger font size for title */
-    margin: 0.5em 0; /* Space above and below title */
+  .task-title {
+    margin: 0;
+    font-size: 1.25em;
   }
   
-  .task-item .task-description {
-    font-size: 1em; /* Font size for description */
-    margin: 0.5em 0; /* Space above and below description */
+  .task-description {
+    margin: 0 1em;
+    font-size: 1em;
+    flex: 1;
   }
   
-  .task-item .edit-delete-buttons {
+  .edit-delete-buttons {
     display: flex;
-    gap: 0.5em; /* Space between buttons */
-    margin-top: 1em; /* Space above buttons */
+    gap: 0.5em;
   }
   
-  .task-item button {
+  .task-editing {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .task-edit-input {
+    margin-right: 1em;
     padding: 0.5em;
-    font-size: 0.9em;
-    border: none;
+    font-size: 1em;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    cursor: pointer;
   }
   
   .edit-button {
     background-color: #ffc107; /* Yellow background */
-    color: #ffffff;
+    color: white;
   }
   
   .edit-button:hover {
     background-color: #e0a800; /* Darker yellow on hover */
   }
   
+  .delete-button {
+    background-color: #dc3545; /* Red background */
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  
   .save-button {
     background-color: #007bff; /* Blue background */
-    color: #ffffff;
+    color: white;
   }
   
   .save-button:hover {
@@ -168,7 +182,7 @@ body {
   
   .cancel-button {
     background-color: #6c757d; /* Grey background */
-    color: #ffffff;
+    color: white;
   }
   
   .cancel-button:hover {
@@ -181,17 +195,26 @@ body {
       flex-direction: column; /* Stack items vertically on smaller screens */
     }
   
-    .task-item .task-details {
-      margin-bottom: 1em; /* Add bottom margin for spacing */
+    .task-details-inline {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
     }
   
-    .task-item .task-title,
-    .task-item .task-description {
+    .task-checkbox {
+      align-self: flex-start;
+      margin-bottom: 1em;
+    }
+  
+    .task-title,
+    .task-description {
       margin-bottom: 0.5em; /* Add bottom margin for spacing */
     }
   
-    .task-item .edit-delete-buttons {
-      flex-direction: row; /* Align buttons horizontally */
+    .edit-delete-buttons {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
     }
   
     .task-item button {
@@ -199,4 +222,3 @@ body {
       font-size: 0.8em; /* Slightly smaller font size */
     }
   }
-  

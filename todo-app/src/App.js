@@ -9,6 +9,7 @@ function App() {
     <div>
       <h1>To-Do List</h1>
       <TaskInput />
+      <br></br>
       <TaskList />
     </div>
   );

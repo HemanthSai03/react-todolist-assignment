@@ -16,38 +16,59 @@ const TaskItem = ({ task }) => {
     setIsEditing(false);
   };
 
+  const handleCheckboxChange = () => {
+    dispatch(updateTask({ ...task, completed: !task.completed }));
+  };
+
   return (
     <li className="task-item">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={handleCheckboxChange}
+        className="task-checkbox"
+      />
       {isEditing ? (
-        <>
-          <div className="task-details">
-            <label className="task-label">Title:</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <label className="task-label">Description:</label>
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-          <div className="edit-delete-buttons">
-            <button className="save-button" onClick={handleUpdateTask}>Save</button>
-            <button className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
-          </div>
-        </>
+        <div className="task-editing">
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="task-edit-input"
+          />
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="task-edit-input"
+          />
+          <button className="save-button" onClick={handleUpdateTask}>
+            Save
+          </button>
+          <button
+            className="cancel-button"
+            onClick={() => setIsEditing(false)}
+          >
+            Cancel
+          </button>
+        </div>
       ) : (
-        <div className="task-row">
-          <div className="task-details">
-            <h2 className="task-title">{task.title}</h2>
-            <p className="task-description">{task.description}</p>
-          </div>
+        <div className="task-details-inline">
+          <h2 className="task-title">{task.title}</h2>
+          <p className="task-description">{task.description}</p>
           <div className="edit-delete-buttons">
-            <button className="edit-button" onClick={() => setIsEditing(true)}>Edit</button>
-            <button className="delete-button" onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
+            <button
+              className="edit-button"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </button>
+            <button
+              className="delete-button"
+              onClick={() => dispatch(deleteTask(task.id))}
+            >
+              Delete
+            </button>
           </div>
         </div>
       )}
